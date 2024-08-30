@@ -6,35 +6,35 @@
     <title>Document</title>
 </head>
 <body>
-    <!-- <form action="index.php" method="post">
+     <!-- <form action="index.php" method="post">
     <label >Username</label>
     <input type="text" name="username"> <br>
     <label >password</label> 
     <input type="password" name="password"> <br>
     <input type="submit" value="log in">
-    </form> -->
-    <!-- <form action="index.php" method="post">
-        <label>quantity</label> <br>
+    </form>  -->
+ <form action="index.php" method="post">
+        <!-- <label>quantity</label> <br> -->
         <input type="text" name="radius">
         <input type="submit" value="calculate">
-    </form> -->
-    <form action="index.php" method="post">
-         <!-- <label>enter a country</label> -->
-        <!-- <input type="text" name="country">
-        <input type="submit"> -->
-        <!-- <label>Username</label> -->
-        <!-- <input type="text" name="username"> <br>
+    </form> 
+    <!-- <form action="index.php" method="post">
+         <label>enter a country</label> 
+         <input type="text" name="country">
+        <input type="submit">
+        <label>Username</label>
+ <input type="text" name="username"> <br>
         <label>Password</label>
         <input type="password" name="password"> <br>
-        <!-- <input type="submit" name="login" value="Log in"> --> 
-        <!-- <input type="radio" name="credit" value="visa Card">
+         <input type="submit" name="login" value="Log in"> 
+         <input type="radio" name="credit" value="visa Card">
             Visa <br>
             <input type="radio" name="credit" value="master card">
             Master Card <br>
             <input type="radio" name="credit" value="kenyan Express">
             Kenyan Express <br>
-            <input type="submit" name="confirm" value="confirm"> -->
-            <!-- <input type="checkbox" name="pizza" value="Pizza">
+            <input type="submit" name="confirm" value="confirm"> 
+             <input type="checkbox" name="pizza" value="Pizza">
             pizza <br>
             <input type="checkbox" name="hamburger" value="Hamburger">
             hamburger <br>
@@ -42,14 +42,14 @@
             hotdog <br>
             <input type="checkbox" name="taco" value="Taco">
             taco <br>
-        <input type="submit" name="submit"> -->
-            <!-- <label>Username</label> 
+        <input type="submit" name="submit"> 
+             <label>Username</label> 
             <input type="text" name="username"> <br>
             <label>Age</label> 
 
             <input type="text" name="age"> <br>
-            <input type="submit" name="login" value="login"> -->
-    </form>
+            <input type="submit" name="login" value="login">
+    </form> -->
 </body>
 </html>
 <?php
@@ -68,11 +68,11 @@
 // $total = ceil($x);
 // $total = pi();
 // echo $total;
-// $radius = $_POST['radius'];
-// $circumfrance = null;
-// $circumfrance = 2*pi()*$radius;
-// $circumfrance = round($circumfrance,2);
-// echo"Circumference = {$circumfrance}cm <br>";
+$radius = $_POST['radius'];
+$circumfrance = null;
+$circumfrance = 2*pi()*$radius;
+$circumfrance = round($circumfrance,2);
+echo"Circumference = {$circumfrance}cm <br>";
 // $date = date("l");
 // for($i=0; $i<10; $i++){
 //     echo $i;
@@ -179,13 +179,83 @@ class Dog {
     public function bark() {
         echo "woof! woof!";
     }
+    public function displayinfo() {
+        echo"Name:{$this->name}, age:{$this->age}, color:{$this->color} <br>";
+    }
 }
 
 $roger = new Dog('roger', 3, 'green');
 $roger->bark();
+// foreach loop can be used to iterate and display object properties
+foreach ($roger as $property => $value) {
+    echo "$property: $value\n";
+}
+$roger ->displayinfo();
+echo $roger;
+
 var_dump($roger);
 // echo $hash;
+// class Dog {
+//     public $name;
+//     public $cloned;
+//     public function __clone() {
+//       $this->cloned = true;
+//     }
+//   }
+  
+//   $roger = new Dog();
+//   $roger->name = 'Roger';
+  
+//   $syd = clone $roger;
+//   echo $syd->cloned;
+//   //try catch block
+//   try {
+//     echo 1 / 0;
+//   } catch (Throwable $e) {
+//     echo $e->getMessage() ."<br />";
+//   }
+ 
+  //an example of a try catch block
+  function divideNumbers($numerator, $denominator) {
+    if ($denominator == 0) {
+        throw new Exception("Cannot divide by zero");
+    }
+    return $numerator / $denominator;
+}
+
+try {
+    // Code that might throw an exception
+    $result = divideNumbers(10, 2);
+    echo "Result: " . $result . "\n";
+
+    $result = divideNumbers(10, 0); // This will throw an exception
+    echo "This line won't be executed";
+
+} catch (Exception $e) {
+    // Code to handle the exception
+    echo "An error occurred: " . $e->getMessage() . "\n";
+
+} finally {
+    // This block always executes, regardless of whether an exception was thrown
+    echo "This will always run\n";
+}
+
+// Code here continues to execute
+echo "Program continues... <br>";
+//code that describe the current timestamp
+$timestamp= time();
+echo date('Y-m-d H:i:s', $timestamp) . "<br>";
+// echo strtotime('now');
+// echo strtotime('4 May 2020');
+// echo strtotime('+1 day');
+// echo strtotime('+1 month');
+// echo strtotime('last Sunday');
 ?>
 <!-- <?php
 // include("footer.html");
+
 ?> -->
+<!-- //displays the system information about php -->
+ <?php
+phpinfo();
+?> 
