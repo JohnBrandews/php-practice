@@ -1,6 +1,6 @@
 
 <?php
-include("database.php");
+// include("database.php");
 // $username = "berrin";
 // $password = "berrin1234";
 // $hash = password_hash($password, PASSWORD_DEFAULT);
