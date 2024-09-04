@@ -88,14 +88,63 @@ print_r($even);
 $array = ['a' => 5, 'b' => 6, 'c' => 7, 'd' => 8];
 $keys = array_keys($array,6);
 print_r($keys);
+//triggers an error message
+// trigger_error('example error',E_USER_ERROR);
+
 ?>
  
-
 
 <?php
 // require 'example.php';
 // phpinfo();
+//used tom list current directories
+$dir = scandir(__DIR__);
+var_dump($dir);
+//you can use is_file or is_dir to check if it's directory or file
+var_dump(is_dir($dir[2]));
+//opens a file provided they are in the  directory
+$file = fopen('index.php', 'r');
+var_dump($file);
+//prints out the content of the opened file
+$content = file_get_contents('index.php');
+echo $content;
+//classes and objects
+class Dog {
+    public $name;
+    public $age;
+    public function bark(){
+        echo "woof";
+    }
+}
+$roger = new Dog();
+$roger->name = 'Dog';
+$roger->age = 7;
+print_r($roger);
+$roger ->  bark();
+//constructor
 
+class Transaction {
+    public $amount;
+    public $description;
+
+    public function __construct($amount, $description) {
+        $this->amount = $amount;
+        $this->description = $description;
+    }
+
+    public function addTax($rate) {
+        $this->amount += $this->amount * $rate / 100;
+    }
+}
+
+// Create an instance of the Transaction class
+$transaction = new Transaction(100, "Sample transaction");
+
+// Add tax
+$transaction->addTax(10);
+
+// Dump the transaction object
+var_dump($transaction);
 
 
 ?>
