@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +46,64 @@ if (isset($_POST['details'])){
     echo $username;
     echo $password;
 }
+
+setcookie('name', 'Flavio', time() + 3600 * 24 * 7);
+setcookie(session_name(), '');
 ?>
 <?php
-phpinfo();
+// phpinfo();
+// echo PHP_VERSION;   
+$x = 200;
+var_dump(is_null($x)) ."<br/>"; 
+$foods =  array("pizza", "meat","orange");
+foreach($foods as $food){
+    echo $food . "<br/>";
+
+}
+$foods = array("mango", "apple", "banana",);
+// // echo $food[2];
+// // array_push($foods,"pineapple") ;
+foreach($foods as $food){
+    echo $food . " <br/>";
+//     // echo count($foods);
+}
+
+echo "\n";  
+//use of keys in php as used in associative array
+$person =[
+    "name" => "john",
+    "age" => 18,    
+    "city" => "nairobi",
+];
+// echo "name: " . $person["name"] . "\n";
+// echo "age: " . $person["age"] . "\n";
+// echo "city: " . $person["city"] . "\n";
+foreach ($person as $key => $value) {
+    echo "$key: $value"."<br />";
+}
+//match in php
+$payment = 1;
+match($payment){
+    1 => print 'paid',
+    2 => print 'declined',
+    3 => print 'received',
+    
+}
+//use of ticks
+
+// function tick_handler() {
+//     echo "Tick\n";
+// }
+
+// register_tick_function('tick_handler');
+
+// declare(ticks=2);
+
+// for ($i = 1; $i <= 10; $i++) {
+//     echo "$i\n";
+// }
+
+// unregister_tick_function('tick_handler');
+
+
 ?> 
