@@ -146,5 +146,85 @@ $transaction->addTax(10);
 // Dump the transaction object
 var_dump($transaction);
 
+//method chaining allows you to call multiple methods on the same object
+class Calculator {
+    private $result = 0;
 
+    public function add($value) {
+        $this->result += $value;
+        return $this;
+    }
+
+    public function subtract($value) {
+        $this->result -= $value;
+        return $this;
+    }
+
+    public function multiply($value) {
+        $this->result *= $value;
+        return $this;
+    }
+
+    public function divide($value) {
+        if ($value != 0) {
+            $this->result /= $value;
+        }
+        return $this;
+    }
+
+    public function getResult() {
+        return $this->result;
+    }
+}
+
+// Using method chaining
+$calc = new Calculator();
+$result = $calc->add(5)->multiply(2)->subtract(3)->divide(2)->getResult();
+
+echo "The result is: " . $result; 
+
+//constructor promotion
+class promotion{
+    private float $amount;
+    public function __construct(
+        float $amount = 2,
+        private string $escription = "hello",
+
+    ){
+         echo $this -> amount . "<br />";
+    }
+}
+class Person {
+    public function __construct(
+        public string $name,
+        public int $age,
+        public ?string $email = null //the nullable operator shows that
+        //this property can be either a string or null
+    ) {}
+}
+
+// Usage
+$person = new Person("John Doe", 30, "john@example.com");
+echo $person->name . "<br/>";
+//nullable properties
+class People{
+    public function __construct(
+        public string $name,
+        public int $age,
+        public ?string $email = null  // This is a nullable property
+    ) {}
+}
+
+// Creating a person with an email
+$alice = new Person("Alice", 30, "alice@example.com");
+echo $alice->email;
+
+// Creating a person without an email
+$bob = new Person("Bob", 25);
+echo $bob->email; 
+
+// 
+$alice->email = null;
+
+//the nullable property allows us to optionally set the email property
 ?>
